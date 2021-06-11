@@ -11,13 +11,13 @@ let proxyObjs = {}
 
 subAppList.map((item) => {
   const proxyObj = {
-    [`/${item.APP_NAME}/_baseAPI`]: {
-      target: item.API_ADDRESS,
-      changeOrigin: true,
-      pathRewrite: {
-        [`^/${item.APP_NAME}/_baseAPI`]: '',
-      },
-    },
+    // [`/${item.APP_NAME}/_baseAPI`]: {
+    //   target: item.API_ADDRESS,
+    //   changeOrigin: true,
+    //   pathRewrite: {
+    //     [`^/${item.APP_NAME}/_baseAPI`]: '',
+    //   },
+    // },
     [`/${item.APP_NAME}`]: {
       target: item.FE_ADDRESS,
       secure: false,

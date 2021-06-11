@@ -15,15 +15,6 @@
       >
         控制台
       </div>
-      <div
-        @click="navTo('/auth')"
-        :class="{
-          'page-header__right-tab': true,
-          isActive: $route.path === '/auth',
-        }"
-      >
-        权限管理
-      </div>
       <full-screen
         v-model="isFullscreen"
         @fullScreen="$emit('fullScreen')"

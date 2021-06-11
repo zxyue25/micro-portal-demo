@@ -2,7 +2,7 @@
 const subAppList = [
   {
     APP_NAME: 'subApp1',
-    FE_ADDRESS: 'http://localhost:8083/subApp1',
+    FE_ADDRESS: 'http://localhost:8084/subApp1',
     API_ADDRESS: '',
   },
   {
