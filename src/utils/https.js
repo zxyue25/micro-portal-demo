@@ -1,7 +1,6 @@
 import { axiosInstance, restful } from './axios-ajax'
 import { Message } from 'element-ui'
 import router from '@/router'
-// import env from '@/utils/env'
 
 function debounce(func, wait, immediate) {
   let timer
@@ -38,8 +37,7 @@ axiosInstance.interceptors.response.use(
   (response) => {
     const { data } = response
     if (data.code == '20001' || data.error === 'NotLogin') {
-      // window.location.href =
-      //   env.VUE_APP_LOGIN_URL + encodeURIComponent(location.href)
+      // window.location.href = ''
     } else if (data.code == '20002' || data.error === 'NotPermission') {
       router.replace({ path: '/401' })
     }
