@@ -1,10 +1,5 @@
 <template>
   <basic-layout :user-name="userName" @logout-click="handleLogoutClick">
-    <!-- <widget-render
-      src="/market-common/js/bread-crumb.widgets.js"
-      :routes="routes"
-    >
-    </widget-render> -->
     <template slot="page-main">
       <!-- <keep-alive>
         <transition name="fade-transform" mode="out-in">
@@ -17,19 +12,17 @@
 </template>
 
 <script>
-// import { WidgetRender } from 'widget-sdk'
 import BasicLayout from '@/layouts/basic-layout'
 import { metaJSONTree as routes } from '@/router/temp.router'
 import { getUserInfo, logout } from '@/api'
 export default {
   components: {
     BasicLayout,
-    // WidgetRender,
   },
   data() {
     return {
       menuAuths: '',
-      userName: '',
+      userName: '用户名',
       routes: JSON.stringify(routes),
     }
   },
