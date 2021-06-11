@@ -1,0 +1,9 @@
+{
+    "index": 1,
+    "showOnMenu": false,
+    "hideOnBreadcrumb": true,
+    "menu": {
+        "title": "概览",
+        "icon": "el-icon-menu"
+    }
+}

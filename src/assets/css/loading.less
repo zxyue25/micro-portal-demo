@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+@base-color-blue: rgba(44, 104, 255, 1);// #2c68ff
+
+/* 自定义loading开始 */
+.base-loading-type1 {
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0 auto 25px;
+  perspective: 200px;
+}
+
+.base-loading-type1::before,
+.base-loading-type1::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0);
+  animation: baseLoading1 .5s infinite alternate;
+}
+
+.base-loading-type1::before {
+  left: 0;
+}
+
+.base-loading-type1::after {
+  right: 0;
+  animation-delay: .15s;
+}
+
+@keyframes baseLoading1 {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transform: scale(1) translateY(0) rotateX(0deg);
+  }
+
+  100% {
+    box-shadow: 0 16px 48px fade(@base-color-blue, (.5*100));
+    background: @base-color-blue;
+    transform: scale(1.2) translateY(-25px) rotateX(45deg);
+  }
+}
+
+/* 自定义loading结束 */
