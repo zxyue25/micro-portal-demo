@@ -26,7 +26,7 @@ const forbidden = () => {
     message: '真抱歉！您没有权限访问',
   });
   setTimeout(() => {
-    router.push('/403');
+    router.push('/401');
   }, 500);
 };
 
@@ -50,7 +50,7 @@ export const initEvent = () => {
   // 声明事件总线
   window.eventCenter = eventCenter;
 
-  // 监听全局系统 403无权限页
+  // 监听全局系统 401无权限页
   window.eventCenter.on(SYSTEM_FORBIDDEN, () => forbidden());
 
   // 监听全局系统 登录态失效

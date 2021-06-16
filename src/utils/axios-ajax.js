@@ -20,7 +20,7 @@ const defaultOptions = {
     //'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
     'Content-Type': contentTypes.json,
   },
-  baseURL: `/auth/_baseAPI/`,
+  baseURL: `/_baseAPI/`,
   data: null,
 }
 const axiosInstance = axios.create({

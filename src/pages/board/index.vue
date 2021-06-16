@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      subAppList: ['subApp1', 'subApp2', 'subApp3'],
+      subAppList: ['subApp1', 'subApp2', 'subApp3', 'subApp4'],
     }
   },
   methods: {

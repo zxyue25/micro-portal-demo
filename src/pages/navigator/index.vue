@@ -33,6 +33,9 @@ export default {
         {
           name: 'subApp3',
         },
+        {
+          name: 'subApp4',
+        },
       ],
     }
   },
@@ -77,7 +80,7 @@ body {
   justify-content: space-around;
 
   &-item {
-    width: 30%;
+    width: 23%;
     cursor: pointer;
   }
 }

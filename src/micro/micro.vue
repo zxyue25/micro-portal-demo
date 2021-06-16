@@ -1,5 +1,5 @@
 <template>
-  <div v-if="subAppActive" id="marketing-sub-app"></div>
+  <div v-if="subAppActive" id="micro-sub-app"></div>
 </template>
 
 <script>

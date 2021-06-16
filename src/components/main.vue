@@ -21,7 +21,6 @@ export default {
   },
   data() {
     return {
-      menuAuths: '',
       userName: '用户名',
       routes: JSON.stringify(routes),
     }

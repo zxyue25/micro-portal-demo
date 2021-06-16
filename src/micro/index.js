@@ -21,8 +21,7 @@ actions.onGlobalStateChange((state) => {
   store.commit('CHANGE_PREACTIVEAPP', state.preActiveApp)
 })
 
-const consoleStyle =
-  'color:#fff;background:#2c68ff;line-height:28px;padding:0 40px;font-size:16px;'
+const consoleStyle = 'color:#fff;background:#2c68ff;line-height:28px;padding:0 40px;font-size:16px;'
 
 /**
  * 注册-子应用集合
@@ -39,7 +38,7 @@ export const register = () => {
           process.env.VUE_APP_ENV === 'production'
             ? `/${APP_NAME}`
             : FE_ADDRESS,
-        container: '#marketing-sub-app',
+        container: '#micro-sub-app',
         activeRule: (location) => location.pathname.startsWith(`/${APP_NAME}`),
         props: { store },
       }
@@ -49,7 +48,7 @@ export const register = () => {
         async (app) => {
           console.log(`%c${app.name} before load`, consoleStyle)
           loading = Loading.service({
-            target: '#marketing-sub-app',
+            target: '#micro-sub-app',
             lock: true,
             text: ' ',
             spinner: 'base-loading-type1',
@@ -114,17 +113,10 @@ const microEvent = () => {
       eMessage.search('died in status LOADING_SOURCE_CODE') !== -1 ||
       eMessage.search('died in status SKIP_BECAUSE_BROKEN') !== -1
     ) {
-      // errorPage = true;
-      // 临时解决License失效导致的子应用加载错误
-      // 问题原因：微前端监听浏览器变化是同步触发事件，校验License发请求是异步事件，导致校验完成跳转失效地址 微前端加载失败
-      const excludePaths = ['/expire', '/not-valid']
-      const { pathname } = window.location
-      if (!excludePaths.includes(pathname)) {
-        Message({
-          message: '系统注册失败，请稍后重试',
-          type: 'error',
-        })
-      }
+      Message({
+        message: '系统注册失败，请稍后重试',
+        type: 'error',
+      })
     } else if (eMessage.search('Failed to fetch') !== -1) {
       Message({
         message: '资源未找到，请检查是否部署',
@@ -132,24 +124,7 @@ const microEvent = () => {
       })
     }
     removeGlobalUncaughtErrorHandler((error) => console.log('remove', error))
-    // if (errorPage) {
-    //   setTimeout(() => {
-    //     window.location.href = '/500';
-    //   }, 300);
-    // }
   })
-
-  /**
-   * 监听single-spa的URL-change事件
-   * 未命中子应用的url，将子应用区域状态清空处理
-   */
-  // window.addEventListener('single-spa:app-change', () => {
-  //   // 匹配到的子应用name
-  //   const appsThatShouldBeActive = getCurrentSubApp(window.location);
-  //   console.info(`%cmicroActive : ${appsThatShouldBeActive}`, consoleStyle);
-  //   // 记录当前显示的应用名称，数组类型
-  //   store.commit('app/TOGGLE_CURRENTAPP', appsThatShouldBeActive);
-  // });
 
   /**
    * 初始化全局事件
@@ -170,7 +145,6 @@ function getPublicPath(entry) {
       location.href
     )
     const paths = pathname.split('/')
-    // paths.pop();
     const r = `${origin}${paths.join('/')}/`
     return r
   } catch (e) {
