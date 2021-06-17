@@ -40,7 +40,7 @@ export const register = () => {
             : FE_ADDRESS,
         container: '#micro-sub-app',
         activeRule: (location) => location.pathname.startsWith(`/${APP_NAME}`),
-        props: { store },
+        props: { preActiveApp:  store.state.preActiveApp},
       }
     })
     registerMicroApps(subApps, {
@@ -77,7 +77,7 @@ export const register = () => {
       beforeUnmount: [
         async (app) => {
           actions.setGlobalState({
-            preActiveApp: app.name ? app.name : store.state.preActiveApp,
+            preActiveApp: app.name ? app.name : store.state.preActiveApp, // 在上一个微应用卸载前记录appName
           })
         },
       ],

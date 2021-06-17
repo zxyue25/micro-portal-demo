@@ -6,7 +6,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     subAppActive: false, // 子系统是否命中
-    preActiveApp: "auth"
+    preActiveApp: "subApp1"
   },
   mutations: {
     TOGGLE_SUBAPPACTIVE(state, bol) {

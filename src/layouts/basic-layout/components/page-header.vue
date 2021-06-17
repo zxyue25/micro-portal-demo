@@ -15,6 +15,16 @@
       >
         控制台
       </div>
+       <div
+        @click="navTo('/board')"
+        :class="{
+          'page-header__right-tab': true,
+          isActive: $route.path === '/subApp1',
+        }"
+        isBoard
+      >
+        权限管理
+      </div>
       <full-screen
         v-model="isFullscreen"
         @fullScreen="$emit('fullScreen')"
